@@ -1,6 +1,5 @@
 <resources>
-    <string name="app_name">PrettGirl_mvvm</string>
-
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="app_name">prettygirl_mvvm</string>
+    <string name="productPrice">price（产品价格）:%1$s 元</string>
+    <string name="zero">0</string>
 </resources>

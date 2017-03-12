@@ -3,6 +3,7 @@ package com.bigkoo.mvvmframework.viewmodel;
 import android.databinding.ObservableArrayList;
 import android.databinding.ObservableBoolean;
 import android.databinding.ObservableList;
+import android.util.Log;
 import android.util.SparseArray;
 import android.view.View;
 
@@ -27,7 +28,7 @@ public abstract class BaseListViewModel<T> extends BaseViewModel{
     //分页页码
     private int page = firstPage;
     //分页每页Item数量
-    private int pageSize = 10;
+    private int pageSize = 20;
     private final ObservableBoolean hasMore = new ObservableBoolean(false);
     private final ObservableBoolean loadingMore = new ObservableBoolean(false);
     protected final ObservableList<Object> items = new ObservableArrayList<>();
@@ -117,6 +118,9 @@ public abstract class BaseListViewModel<T> extends BaseViewModel{
         public void onHttpSuccess(List<T> resultData, String msg) {
             setStatusError(false);
             setStatusNetworkError(false);
+            Log.i("qych", "msg=" + msg);
+            Log.i("qych","result="+resultData);
+
 
             if(isFirstPage()) {
                 items.clear();
