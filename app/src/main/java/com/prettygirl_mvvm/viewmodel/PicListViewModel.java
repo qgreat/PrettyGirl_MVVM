@@ -47,8 +47,8 @@ public class PicListViewModel extends BaseRefreshRecyclerViewModel {
     public void onItemClick(View v, int position, View itemView, Object item) {
         Bundle bundle = new Bundle();
         int code = PicListActivity.CODE_ITEM;
-        if (item instanceof Pic) {
-            bundle.putSerializable("model", ((Pic) item));
+        if (item instanceof GirlsBean) {
+            bundle.putSerializable("model", ((GirlsBean) item));
         } else {
             code = PicListActivity.CODE_HEADER_FOOTER;
             bundle.putString("msg", "点击了header或footer");

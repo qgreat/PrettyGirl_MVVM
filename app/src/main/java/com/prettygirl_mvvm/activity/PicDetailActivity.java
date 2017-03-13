@@ -8,7 +8,7 @@ import android.widget.Toast;
 import com.bigkoo.mvvmframework.listener.OnViewModelNotifyListener;
 import com.prettygirl_mvvm.R;
 import com.prettygirl_mvvm.databinding.ActivityPicdetailBinding;
-import com.prettygirl_mvvm.model.Pic;
+import com.prettygirl_mvvm.model.GirlsBean;
 import com.prettygirl_mvvm.viewmodel.PicDetailViewModel;
 
 /**
@@ -23,6 +23,8 @@ public class PicDetailActivity extends AppCompatActivity implements OnViewModelN
         super.onCreate(savedInstanceState);
         ActivityPicdetailBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_picdetail);
         viewModel = new PicDetailViewModel();
+        GirlsBean girlsBean = (GirlsBean) getIntent().getSerializableExtra("model");
+        viewModel.setDetail(girlsBean);
         viewModel.setOnViewModelNotifyListener(this);
         binding.setViewModel(viewModel);
         binding.executePendingBindings();
@@ -38,8 +40,8 @@ public class PicDetailActivity extends AppCompatActivity implements OnViewModelN
     public void onViewModelNotify(Bundle bundle, int code) {
         switch (code){
             case CODE_ITEM:
-                Pic pic = (Pic) bundle.getSerializable("model");
-                Toast.makeText(this, pic.getSpotName(),Toast.LENGTH_SHORT).show();
+                GirlsBean pic = (GirlsBean) bundle.getSerializable("model");
+//                Toast.makeText(this, pic.getSpotName(),Toast.LENGTH_SHORT).show();
                 break;
             case CODE_HEADER_FOOTER:
                 Toast.makeText(this,bundle.getString("msg"),Toast.LENGTH_SHORT).show();

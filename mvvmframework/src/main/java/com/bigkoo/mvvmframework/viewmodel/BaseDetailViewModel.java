@@ -14,6 +14,9 @@ public abstract class BaseDetailViewModel<T> extends BaseViewModel {
     private ObservableField<T> detail = new ObservableField<>();
     private boolean once = false;//控制loading状态只有一次,对于列表的loading概念，就是首次加载数据，其余加载是刷新
 
+    public void setDetail(T t) {
+        detail.set(t);
+    }
     /**
      * 刷新数据
      */

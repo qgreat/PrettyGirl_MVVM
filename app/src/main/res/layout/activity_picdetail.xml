@@ -9,28 +9,32 @@
             name="viewModel"
             type="com.prettygirl_mvvm.viewmodel.PicDetailViewModel" />
 
-        <import type="com.prettygirl_mvvm.model.Pic"/>
+        <import type="com.prettygirl_mvvm.model.GirlsBean"/>
     </data>
 
 
-    <LinearLayout
+<LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#FFFFFF"
+        android:paddingLeft="1dp"
+        android:paddingRight="1dp"
+        android:paddingTop="2dp"
         android:orientation="vertical">
-
+        <ImageView
+            app:imageUrl="@{((GirlsBean)viewModel.detail).url}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:minHeight="150dp"
+            android:scaleType="fitCenter"
+            />
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="@{((Pic)viewModel.detail).spotName}" />
+            android:gravity="center"
+            android:visibility="gone"
+            android:layout_height="wrap_content" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="@{@string/productPrice(((Pic)viewModel.detail).price??@string/zero)}" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="@{((Pic)viewModel.detail).detailInfo}" />
     </LinearLayout>
 </layout>

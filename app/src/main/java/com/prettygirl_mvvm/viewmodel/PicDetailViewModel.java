@@ -13,7 +13,7 @@ import retrofit2.Call;
  */
 public class PicDetailViewModel extends BaseDetailViewModel {
     public PicDetailViewModel(){
-        onLoad();
+//        onLoad();
     }
 
     @Override

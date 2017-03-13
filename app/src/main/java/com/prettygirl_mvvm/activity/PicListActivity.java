@@ -9,6 +9,7 @@ import android.widget.Toast;
 import com.bigkoo.mvvmframework.listener.OnViewModelNotifyListener;
 import com.prettygirl_mvvm.R;
 import com.prettygirl_mvvm.databinding.ActivityPiclistBinding;
+import com.prettygirl_mvvm.model.GirlsBean;
 import com.prettygirl_mvvm.model.Pic;
 import com.prettygirl_mvvm.viewmodel.PicListViewModel;
 
@@ -35,9 +36,11 @@ public class PicListActivity extends AppCompatActivity implements OnViewModelNot
     public void onViewModelNotify(Bundle bundle, int code) {
         switch (code){
             case CODE_ITEM:
-                Pic pic = (Pic) bundle.getSerializable("model");
-                Toast.makeText(this, pic.getSpotName(),Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(this,PicListActivity.class));
+                GirlsBean pic = (GirlsBean) bundle.getSerializable("model");
+                Toast.makeText(this, pic.getWho(),Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(this,PicListActivity.class);
+                intent.putExtra("model",bundle);
+                startActivity(intent);
                 break;
             case CODE_HEADER_FOOTER:
                 Toast.makeText(this,bundle.getString("msg"),Toast.LENGTH_SHORT).show();
