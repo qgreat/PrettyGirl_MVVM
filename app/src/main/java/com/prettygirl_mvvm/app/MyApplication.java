@@ -35,7 +35,7 @@ public class MyApplication extends Application {
         ToastUtil.isShow = true;
 
         //配置程序异常退出处理
-        Thread.setDefaultUncaughtExceptionHandler(new LocalFileHandler(this));
+//        Thread.setDefaultUncaughtExceptionHandler(new LocalFileHandler(this));
     }
 
     public static OkHttpClient defaultOkHttpClient() {

@@ -23,19 +23,15 @@ import retrofit2.Call;
  */
 public class PicListViewModel extends BaseRefreshRecyclerViewModel {
 
-    private final String ssss;
-
     public PicListViewModel() {
         //正常的item样式
         super(R.layout.item_piclist);
         //设置特殊样式的view
-        ssss = new String();
-        String ssss = this.ssss;
-///*/*/*/*/*/**/*/*/*/*/*/
+
         setSpecialView(8, R.layout.item_special_piclist);
         setSpecialView(10, R.layout.item_special_piclist);
         //加入header
-        addHeader(R.layout.item_header_hot_piclist, "spanner");
+        addHeader(R.layout.item_header_hot_piclist, "prettygirl");
         addHeader(R.layout.item_header_image_piclist, 0);
 
 //        setLayoutManager(LayoutManagers.grid(2));  //网格模式
@@ -44,7 +40,7 @@ public class PicListViewModel extends BaseRefreshRecyclerViewModel {
 
     @Override
     public Call<HttpResult<List<GirlsBean>>> onLoadListHttpRequest() {
-        return HttpServiceGenerator.createService().getGirls("福利",getPage(), getPageSize());
+        return HttpServiceGenerator.createService().getGirls("福利",getPageSize(), getPage());
     }
 
     @Override

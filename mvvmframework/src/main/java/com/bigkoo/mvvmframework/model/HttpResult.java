@@ -13,32 +13,32 @@ public class HttpResult<T>  {
      */
 
 
-    private int code;
+    private boolean code;
 
-    private T content;
-    private String msg;
+    private T results;
+//    private String msg;
 
-    public void setCode(int code) {
+    public void setCode(boolean code) {
         this.code = code;
     }
 
     public void setContent(T content) {
-        this.content = content;
+        this.results = content;
     }
 
-    public void setMsg(String msg) {
-        this.msg = msg;
-    }
+//    public void setMsg(String msg) {
+//        this.msg = msg;
+//    }
 
-    public int getCode() {
+    public boolean getCode() {
         return code;
     }
 
     public T getContent() {
-        return content;
+        return results;
     }
 
-    public String getMsg() {
-        return msg;
-    }
+//    public String getMsg() {
+//        return msg;
+//    }
 }

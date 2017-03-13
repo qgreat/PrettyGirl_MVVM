@@ -14,7 +14,10 @@ public class BindingConfig {
 
     @BindingAdapter({"imageUrl"})
     public static void loadImage(ImageView view, String url) {
-        ImageLoaderManager.getInstance().displayImage(view, url);
+        if (view != null) {
+            ImageLoaderManager.getInstance().displayImage(view, url);
+
+        }
     }
 
 

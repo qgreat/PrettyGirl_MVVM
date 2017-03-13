@@ -26,6 +26,12 @@ public interface HttpService {
             @Path("count") int count,
             @Path("page") int page
     );
+    @GET("api/data/{type}/{count}/{page}")
+    Call<HttpResult<List<GirlsBean> >>getGirl(
+            @Path("type") String type,
+            @Path("count") int count,
+            @Path("page") int page
+    );
     @GET("api/list/pic")
     Call<HttpResult<List<Pic>>> getTicketList(@Query("page") int page, @Query("pageSize") int pageSize);
     @GET("api/detail/pic")

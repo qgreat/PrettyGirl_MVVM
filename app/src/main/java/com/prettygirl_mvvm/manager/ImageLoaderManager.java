@@ -52,6 +52,9 @@ public class ImageLoaderManager {
                     .resize(view.getWidth(), view.getHeight());
 
         }
+        if (view == null) {
+            return;
+        }
         creator.into(view);
     }
 

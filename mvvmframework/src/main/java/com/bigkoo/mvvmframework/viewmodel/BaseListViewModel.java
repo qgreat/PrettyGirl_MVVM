@@ -28,7 +28,8 @@ public abstract class BaseListViewModel<T> extends BaseViewModel{
     //分页页码
     private int page = firstPage;
     //分页每页Item数量
-    private int pageSize = 20;
+    private int pageSize = 5
+             ;
     private final ObservableBoolean hasMore = new ObservableBoolean(false);
     private final ObservableBoolean loadingMore = new ObservableBoolean(false);
     protected final ObservableList<Object> items = new ObservableArrayList<>();
@@ -119,7 +120,7 @@ public abstract class BaseListViewModel<T> extends BaseViewModel{
             setStatusError(false);
             setStatusNetworkError(false);
             Log.i("qych", "msg=" + msg);
-            Log.i("qych","result="+resultData);
+            Log.i("qych","result="+resultData.size());
 
 
             if(isFirstPage()) {

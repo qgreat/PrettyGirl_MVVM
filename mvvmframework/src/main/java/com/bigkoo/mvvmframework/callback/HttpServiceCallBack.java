@@ -21,13 +21,13 @@ public abstract class HttpServiceCallBack<T> implements Callback<HttpResult<T>> 
             //通常是服务器出错返回了非约定格式
             onHttpFail(response.code(),"网络错误,请稍后再试");
         } else {
-            if (result.getCode() == HttpStatusConstants.RESULT_OK) {
+            if (result.getCode() == false) {
                 //正确返回约定的OK码
-                onHttpSuccess(result.getContent(),result.getMsg());
+                onHttpSuccess(result.getContent(),"");
             }
             else {
                 //返回约定的其他类型码，可根据返回码进行相对应的操作
-                onHttpFail(result.getCode(),result.getMsg());
+//                onHttpFail(result.getCode(),result.getMsg());
             }
         }
         onHttpComplete();
