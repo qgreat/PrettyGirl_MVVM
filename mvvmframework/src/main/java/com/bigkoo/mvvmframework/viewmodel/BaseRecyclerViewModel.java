@@ -2,6 +2,7 @@ package com.bigkoo.mvvmframework.viewmodel;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
 
 import com.bigkoo.mvvmframework.utils.RecyclerViewItemClickSupport;
@@ -13,6 +14,8 @@ import me.tatarka.bindingcollectionadapter.LayoutManagers;
  * Created by Sai on 16/6/4.
  */
 public abstract class BaseRecyclerViewModel<T> extends BaseListViewModel{
+//    StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
+
     private LayoutManagers.LayoutManagerFactory layoutManager =  LayoutManagers.linear();
     private RecyclerView.ItemDecoration itemDecoration;
     public BaseRecyclerViewModel(int itemLayout) {

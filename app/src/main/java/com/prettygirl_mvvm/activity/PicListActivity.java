@@ -14,10 +14,6 @@ import com.prettygirl_mvvm.model.Pic;
 import com.prettygirl_mvvm.viewmodel.PicDetailViewModel;
 import com.prettygirl_mvvm.viewmodel.PicListViewModel;
 
-/**
- * 通用BaseRecyclerViewModel使用例子
- * Created by Sai on 16/6/3.
- */
 public class PicListActivity extends AppCompatActivity implements OnViewModelNotifyListener {
     public static final int CODE_ITEM = 0;
     public static final int CODE_HEADER_FOOTER = 1;
@@ -38,9 +34,11 @@ public class PicListActivity extends AppCompatActivity implements OnViewModelNot
         switch (code){
             case CODE_ITEM:
                 GirlsBean pic = (GirlsBean) bundle.getSerializable("model");
+                int cor = bundle.getInt("color");
 //                Toast.makeText(this, pic.getWho(),Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(this, PicDetailActivity.class);
                 intent.putExtra("model", pic);
+                intent.putExtra("color",cor);
                 startActivity(intent);
                 break;
             case CODE_HEADER_FOOTER:

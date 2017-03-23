@@ -25,9 +25,6 @@ import com.prettygirl_mvvm.utils.ColorUtil;
 import com.prettygirl_mvvm.viewmodel.PicDetailViewModel;
 import com.prettygirl_mvvm.widget.PinchImageView;
 
-/**
- * Created by Sai on 16/6/10.
- */
 public class PicDetailActivity extends AppCompatActivity implements OnViewModelNotifyListener {
     public static final int CODE_ITEM = 0;
     public static final int CODE_HEADER_FOOTER = 1;

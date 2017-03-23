@@ -5,8 +5,6 @@ import java.text.DateFormat;
 
 /**
  * 系统异常处理类
- * @author PLUTO
- *
  */
 public abstract class BaseExceptionHandler implements UncaughtExceptionHandler {
 	

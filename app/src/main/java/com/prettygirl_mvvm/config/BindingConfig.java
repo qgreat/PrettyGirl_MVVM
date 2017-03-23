@@ -7,9 +7,6 @@ import android.widget.ImageView;
 import com.bigkoo.mvvmframework.viewmodel.BaseViewModel;
 import com.prettygirl_mvvm.manager.ImageLoaderManager;
 
-/**
- * Created by Sai on 16/8/30.
- */
 public class BindingConfig {
 
     @BindingAdapter({"imageUrl"})

@@ -5,22 +5,20 @@ import android.graphics.Bitmap;
 import android.text.TextUtils;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.RequestManager;
 import com.prettygirl_mvvm.R;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.RequestCreator;
 
 
-/**
- * 图片缓存库管理器
- * Created by Sai on 16/4/6.
- */
 public class ImageLoaderManager {
     private static ImageLoaderManager instance = new ImageLoaderManager();
 
     public static ImageLoaderManager getInstance() {
         return instance;
     }
-
+private  RequestManager requestManager;
     private Picasso imageLoader;
 
     private ImageLoaderManager() {
@@ -28,6 +26,7 @@ public class ImageLoaderManager {
 
     public void init(Context context) {
         imageLoader = Picasso.with(context);
+        requestManager =Glide.with(context);
     }
 
     public void displayImage(ImageView view, String url) {
@@ -39,23 +38,23 @@ public class ImageLoaderManager {
             view.setImageResource(R.mipmap.ic_launcher);
             return;
         }
-        RequestCreator creator = imageLoader
+         requestManager
                 .load(url)
-                .placeholder(R.mipmap.ic_launcher)
-                .error(R.mipmap.ic_launcher)
-                .config(Bitmap.Config.RGB_565);//不透明的图片使用减少内存
+                .dontAnimate()
+                .into(view);
+
+                /*.placeholder(R.mipmap.ic_launcher)
+                .error(R.mipmap.ic_launcher)*/
         if (view.getWidth() == 0 && view.getHeight() == 0){
 
         }
         else {
-            creator.centerCrop()
-                    .resize(view.getWidth(), view.getHeight());
 
         }
         if (view == null) {
             return;
         }
-        creator.into(view);
+//        creator.into(view);
     }
 
 }

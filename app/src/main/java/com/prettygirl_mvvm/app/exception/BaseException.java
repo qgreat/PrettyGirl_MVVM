@@ -2,8 +2,6 @@ package com.prettygirl_mvvm.app.exception;
 
 /**
  * 自定义异常,系统中所有异常都转化为Exceptions
- * @author PLUTO
- *
  */
 public class BaseException extends RuntimeException {
 

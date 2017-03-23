@@ -8,9 +8,6 @@ import com.prettygirl_mvvm.network.HttpServiceGenerator;
 import retrofit2.Call;
 
 
-/**
- * Created by Sai on 16/6/10.
- */
 public class PicDetailViewModel extends BaseDetailViewModel {
     public PicDetailViewModel(){
 //        onLoad();

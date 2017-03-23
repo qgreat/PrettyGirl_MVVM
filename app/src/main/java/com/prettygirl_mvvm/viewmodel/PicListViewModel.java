@@ -25,7 +25,6 @@ import retrofit2.Call;
 
 /**
  * 通用BaseRecyclerViewModel使用例子
- * Created by Sai on 16/6/3.
  */
 public class PicListViewModel extends BaseRefreshRecyclerViewModel {
 int color;
@@ -73,8 +72,8 @@ int color;
         builder.generate(new Palette.PaletteAsyncListener() {
             @Override
             public void onGenerated(Palette palette) {
-//                Palette.Swatch vir = palette.getLightMutedSwatch();
-                Palette.Swatch vir = palette.getVibrantSwatch();
+                Palette.Swatch vir = palette.getLightMutedSwatch();
+//                Palette.Swatch vir = palette.getVibrantSwatch();
                 if (vir == null)
                     color = 0;
                 else  color =vir.getRgb();

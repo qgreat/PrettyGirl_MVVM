@@ -24,7 +24,6 @@ import retrofit2.Call;
 
 /**
  * 列表类型通用的ViewModel基类
- * Created by Sai on 16/5/31.
  */
 public abstract class BaseListViewModel<T> extends BaseViewModel{
     private int firstPage = 1;
