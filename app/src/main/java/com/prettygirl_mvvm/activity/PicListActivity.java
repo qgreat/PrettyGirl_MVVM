@@ -11,6 +11,7 @@ import com.prettygirl_mvvm.R;
 import com.prettygirl_mvvm.databinding.ActivityPiclistBinding;
 import com.prettygirl_mvvm.model.GirlsBean;
 import com.prettygirl_mvvm.model.Pic;
+import com.prettygirl_mvvm.viewmodel.PicDetailViewModel;
 import com.prettygirl_mvvm.viewmodel.PicListViewModel;
 
 /**
@@ -37,9 +38,9 @@ public class PicListActivity extends AppCompatActivity implements OnViewModelNot
         switch (code){
             case CODE_ITEM:
                 GirlsBean pic = (GirlsBean) bundle.getSerializable("model");
-                Toast.makeText(this, pic.getWho(),Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(this,PicListActivity.class);
-                intent.putExtra("model",bundle);
+//                Toast.makeText(this, pic.getWho(),Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(this, PicDetailActivity.class);
+                intent.putExtra("model", pic);
                 startActivity(intent);
                 break;
             case CODE_HEADER_FOOTER:

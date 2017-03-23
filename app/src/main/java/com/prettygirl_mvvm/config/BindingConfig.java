@@ -16,7 +16,6 @@ public class BindingConfig {
     public static void loadImage(ImageView view, String url) {
         if (view != null) {
             ImageLoaderManager.getInstance().displayImage(view, url);
-
         }
     }
 

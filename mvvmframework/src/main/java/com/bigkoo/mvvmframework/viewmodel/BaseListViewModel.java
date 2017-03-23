@@ -12,6 +12,9 @@ import com.bigkoo.mvvmframework.callback.HttpServiceCallBack;
 import com.bigkoo.mvvmframework.model.HeaderFooterMapping;
 import com.bigkoo.mvvmframework.model.HttpResult;
 
+import org.apache.commons.io.IOUtils;
+
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,7 +49,6 @@ public abstract class BaseListViewModel<T> extends BaseViewModel{
     public BaseListViewModel(int itemLayout){
         this.itemLayout = itemLayout;
     }
-
     private ItemViewSelector<Object> itemViews = new ItemViewSelector<Object>() {
         @Override
         public void select(ItemView itemView, int position, Object item) {

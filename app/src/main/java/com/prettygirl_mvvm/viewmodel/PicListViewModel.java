@@ -1,7 +1,11 @@
 package com.prettygirl_mvvm.viewmodel;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.support.v7.graphics.Palette;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.bigkoo.mvvmframework.model.HttpResult;
 import com.bigkoo.mvvmframework.viewmodel.BaseRefreshRecyclerViewModel;
@@ -10,6 +14,8 @@ import com.prettygirl_mvvm.activity.PicListActivity;
 import com.prettygirl_mvvm.model.GirlsBean;
 import com.prettygirl_mvvm.model.Pic;
 import com.prettygirl_mvvm.network.HttpServiceGenerator;
+import com.prettygirl_mvvm.utils.BitmapUtil;
+import com.prettygirl_mvvm.widget.PinchImageView;
 
 import java.util.List;
 
@@ -22,6 +28,7 @@ import retrofit2.Call;
  * Created by Sai on 16/6/3.
  */
 public class PicListViewModel extends BaseRefreshRecyclerViewModel {
+int color;
 
     public PicListViewModel() {
         //正常的item样式
@@ -48,12 +55,31 @@ public class PicListViewModel extends BaseRefreshRecyclerViewModel {
         Bundle bundle = new Bundle();
         int code = PicListActivity.CODE_ITEM;
         if (item instanceof GirlsBean) {
+                    ImageView iv=(ImageView) itemView.findViewById(R.id.iv_item_list);
+            getColorAndSet(iv);
+
             bundle.putSerializable("model", ((GirlsBean) item));
+            bundle.putInt("color",color);
         } else {
             code = PicListActivity.CODE_HEADER_FOOTER;
             bundle.putString("msg", "点击了header或footer");
         }
         onViewModelNotify(bundle, code);
+    }
+
+    private void  getColorAndSet(ImageView view) {
+        Bitmap bitmap = BitmapUtil.drawableToBitmap(view.getDrawable());
+        Palette.Builder builder = Palette.from(bitmap);
+        builder.generate(new Palette.PaletteAsyncListener() {
+            @Override
+            public void onGenerated(Palette palette) {
+//                Palette.Swatch vir = palette.getLightMutedSwatch();
+                Palette.Swatch vir = palette.getVibrantSwatch();
+                if (vir == null)
+                    color = 0;
+                else  color =vir.getRgb();
+            }
+        });
     }
 
     /**
