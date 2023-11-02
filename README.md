@@ -1,5 +1,5 @@
 # PrettyGirl_MVVM
-这是一个搭建MVVM模式开发的简单app，使用了DataBinding实现双向绑定、Retrofit和okhttp非常优雅的访问网络.
+这是一个搭建MVVM模式开发的简单app，使用了DataBinding实现双向绑定、Retrofit和okhttp非常优雅的访问网络.1
 
 # 参考
 [Databinding设计指南](http://www.jianshu.com/p/b1df61a4df77)
